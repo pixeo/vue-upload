@@ -57,7 +57,6 @@ describe('Upload', () => {
             expect(upload.files('default')[0].name).toBe('test.jpg');
             expect(upload.files('default')[0].size).toBe(4);
             expect(upload.files('default')[0].status).toBe('success');
-            expect(upload.files('default')[0].src).toBe('data:;base64,dGVzdA==');
 
             done();
         });
