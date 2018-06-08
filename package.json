@@ -1,5 +1,5 @@
 {
-  "name": "@pixeo/upload",
+  "name": "@pixeoweb/upload",
   "version": "0.1.0",
   "description": "A simple upload plugin for Vue.js",
   "keywords": [

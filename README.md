@@ -11,7 +11,7 @@ Inspiration is taken from [this repository](https://github.com/websanova/vue-upl
 You can install the package via npm:
 
 ```bash
-npm install @pixeo/upload
+npm install @pixeoweb/upload
 ```
 
 Next, you must register the plugin. The most common use case is to do that globally.
@@ -19,7 +19,7 @@ Next, you must register the plugin. The most common use case is to do that globa
 ```js
 //in your app.js or similar file
 import Vue from 'vue';
-import Upload from '@pixeo/upload';
+import Upload from '@pixeoweb/upload';
 
 Vue.use(Upload);
 ```
