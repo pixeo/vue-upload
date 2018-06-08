@@ -12,7 +12,8 @@
   "scripts": {
     "build": "rm -rf dist && NODE_ENV=production webpack",
     "test": "mocha-webpack --webpack-config webpack.config.js --require test/setup.js test/\\*.spec.js",
-    "watch": "mocha-webpack --webpack-config webpack.config.js --watch --require test/setup.js test/\\*.spec.js"
+    "watch": "mocha-webpack --webpack-config webpack.config.js --watch --require test/setup.js test/\\*.spec.js",
+    "cover": "istanbul cover mocha-webpack --report lcovonly -- --webpack-config webpack.config.js --require test/setup.js test/\\*.spec.js"
   },
   "author": "",
   "license": "MIT",
@@ -31,6 +32,7 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "expect": "^21.2.1",
+    "istanbul": "^0.4.5",
     "jsdom": "^11.3.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^4.0.1",
