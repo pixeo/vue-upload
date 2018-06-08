@@ -36,7 +36,9 @@ Vue.use(Upload);
 ```js
 mounted() {
     this.$upload.create('media', {
-        url: "YOUR_URL",
+        url: "YOUR_URL", // required
+        onBeforeSend: (formData) => {} // optional
+        onSuccess: (file, data) => {} // optional
     });
 },
 
