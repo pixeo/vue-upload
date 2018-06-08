@@ -3,6 +3,7 @@ import axios from 'axios';
 const defaultOptions = {
     url: null,
     multiple: false,
+    accept: '',
     onBeforeSend: () => {},
     onSuccess: () => {},
 };
@@ -28,12 +29,13 @@ class Upload {
         return document.getElementById(Upload.id(name));
     }
 
-    static createInput(name, onChange) {
+    static createInput(name, options, onChange) {
         const input = document.createElement('input');
         input.type = 'file';
         input.id = Upload.id(name);
         input.style.display = 'none';
         input.onchange = onChange;
+        input.setAttribute('accept', options.accept);
 
         document.body.appendChild(input);
     }
@@ -57,7 +59,7 @@ class Upload {
             options: Object.assign({}, this.options, options),
         });
 
-        Upload.createInput(name, (event) => {
+        Upload.createInput(name, this.uploader(name).options, (event) => {
             this.processFiles(event, name);
         });
 

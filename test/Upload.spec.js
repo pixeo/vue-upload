@@ -77,4 +77,17 @@ describe('Upload', () => {
 
         expect(upload.files('default').length).toBe(1);
     });
+
+    it('can set input\'s accept parameter', () => {
+        const uploader = new Upload(createLocalVue());
+
+        uploader.create('default-1', {
+            url: 'http://localhost',
+            accept: 'image/png',
+        });
+
+        const elem = document.querySelector('#upload-default-1');
+        expect(uploader.uploader('default-1').options.url).toBe('http://localhost');
+        expect(elem.getAttribute('accept')).toBe('image/png');
+    });
 });
