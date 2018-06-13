@@ -1,6 +1,6 @@
 # Vue upload plugin
 
-[![Build Status](https://travis-ci.org/pixeoweb/upload.svg?branch=master)](https://travis-ci.org/pixeoweb/upload)
+[![Build Status](https://travis-ci.org/pixeo/vue-upload.svg?branch=master)](https://travis-ci.org/pixeo/vue-upload)
 
 Simple upload plugin for Vue.js.
 
