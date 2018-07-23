@@ -4,6 +4,7 @@ const defaultOptions = {
     url: null,
     multiple: false,
     accept: '',
+    onBeforeProcessing: () => {},
     onBeforeSend: () => {},
     onSuccess: () => {},
 };
@@ -100,6 +101,8 @@ class Upload {
         if (selectedFiles.length === 0) {
             return;
         }
+
+        uploader.options.onBeforeProcessing(event, name);
 
         for (let i = 0; i < selectedFiles.length; i += 1) {
             const file = Object.assign({
