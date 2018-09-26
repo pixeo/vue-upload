@@ -1,6 +1,6 @@
 {
   "name": "@pixeoweb/upload",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A simple upload plugin for Vue.js",
   "keywords": [
     "vue",
