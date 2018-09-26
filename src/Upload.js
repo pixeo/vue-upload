@@ -102,7 +102,7 @@ class Upload {
             return;
         }
 
-        uploader.options.onBeforeProcessing(event, name);
+        uploader.options.onBeforeProcessing(event, name, selectedFiles);
 
         for (let i = 0; i < selectedFiles.length; i += 1) {
             const file = Object.assign({
