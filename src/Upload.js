@@ -80,6 +80,14 @@ class Upload {
         Upload.input(name).value = null;
     }
 
+    destroy(name) {
+        const input = Upload.input(name);
+
+        input.parentNode.removeChild(input);
+
+        delete this.store.uploaders[name];
+    }
+
     remove(name, file) {
         const { files } = this.uploader(name);
 

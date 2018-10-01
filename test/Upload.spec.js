@@ -90,4 +90,27 @@ describe('Upload', () => {
         expect(uploader.uploader('default-1').options.url).toBe('http://localhost');
         expect(elem.getAttribute('accept')).toBe('image/png');
     });
+
+    it('can destroy an instance', () => {
+        const uploader = new Upload(createLocalVue());
+
+        uploader.create('removed');
+        uploader.store.$set(
+            uploader.store.uploaders.removed,
+            'files',
+            ['test-a', 'test-b'],
+        );
+
+
+        let elem = document.querySelector('#upload-removed');
+        expect(elem).toBeInstanceOf(HTMLInputElement);
+        expect(elem.id).toBe('upload-removed');
+
+        uploader.destroy('removed');
+
+        elem = document.querySelector('#upload-removed');
+        expect(elem).toBeNull();
+        console.log(uploader.store.uploaders.removed);
+        expect(uploader.store.uploaders.removed).toBeUndefined();
+    });
 });
