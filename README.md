@@ -17,7 +17,7 @@ npm install @pixeoweb/upload
 Next, you must register the plugin. The most common use case is to do that globally.
 
 ```js
-//in your app.js or similar file
+// in your app.js or similar file
 import Vue from 'vue';
 import Upload from '@pixeoweb/upload';
 
@@ -38,9 +38,12 @@ Vue.use(Upload);
 ```js
 mounted() {
     this.$upload.create('media', {
-        url: "YOUR_URL", // required
-        onBeforeSend: (formData) => {} // optional
-        onSuccess: (file, data) => {} // optional
+        url: null,
+        multiple: false,
+        accept: '',
+        onBeforeProcessing: (event, name, selectedFiles) => {},
+        onBeforeSend: (fileUploadFormData) => {},
+        onSuccess: () => {},
     });
 },
 
@@ -50,6 +53,36 @@ methods: {
     },
 },
 ```
+
+### Options
+
+**url** - String
+
+**multiple** - Boolean
+
+Allow multiple files to be uploaded.
+
+**accept** - String
+
+The default implementation of `accept` checks the file's mime type or extension against this list.
+This is a comma separated list of mime types or file extensions.
+
+Eg.: `image/*,application/pdf,.psd`
+
+**onBeforeProcessing** - Function
+
+This function is triggered before the processing before files are processed.
+The function parameters are `event`, `name` and `selectedFiles`
+
+**onBeforeSend** - Function
+
+This function is triggered for each file that is sent to the server.
+Gets the formData object as parameters, so you can modify them or add additional data.
+
+**onSuccess** - Function
+
+This function is triggered when the data is successfully sent to the server.
+Gets the `file` and `data` as parameters.
 
 ### Testing
 
